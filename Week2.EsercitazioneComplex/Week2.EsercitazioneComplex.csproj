@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Week2.ComplexNumber\Week2.ComplexNumber.csproj" />
+    <ProjectReference Include="..\Week2.Esercitazione.ConsoleApp\Week2.Esercitazione.ConsoleApp.csproj" />
+  </ItemGroup>
+
+</Project>
