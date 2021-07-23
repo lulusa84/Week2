@@ -11,7 +11,7 @@ namespace Week2.Esercitazione.ConsoleApp
             Console.WriteLine("Benvenuto nel nostro gestionale");
             Console.WriteLine("Cosa vuoi fare?");
 
-            int choose = Console.Read();
+            int choose = Convert.ToInt32(Console.ReadLine());
             switch (choose)
             {
                 case 0:
@@ -46,6 +46,8 @@ namespace Week2.Esercitazione.ConsoleApp
 
 
             }
+
+            Console.Read();
         }
         public static Account CreateAccount() {
             Console.WriteLine("Ho bisogno dei tui dati");
