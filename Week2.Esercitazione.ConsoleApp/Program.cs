@@ -10,6 +10,23 @@ namespace Week2.Esercitazione.ConsoleApp
 
             Console.WriteLine("Benvenuto nel nostro gestionale");
             Console.WriteLine("Cosa vuoi fare?");
+            Account StAccount = new Account(
+                1234,
+                "BNL",
+                0,
+                DateTime.Now
+
+                );
+
+            CashMovement InitCm = new CashMovement
+                (
+              320000,
+               DateTime.Now,
+               "Sarah Tarantino"
+
+            );
+            _ = StAccount + InitCm;
+            
 
             int choose = Convert.ToInt32(Console.ReadLine());
             switch (choose)
@@ -17,7 +34,7 @@ namespace Week2.Esercitazione.ConsoleApp
                 case 0:
 
                     Console.WriteLine("hai scelto di crare un conto");
-                    CreateAccount();
+                    // CreateAccount();
                     CreateAccount().Statement();
                     break;
 
@@ -25,30 +42,57 @@ namespace Week2.Esercitazione.ConsoleApp
 
                     Console.WriteLine("hai scelto di versare");
                     CashMovement cm = createCashMovement();
-                    _ = CreateAccount() + cm;
-
+                    _=StAccount + cm;
+                    cm.ToString();
                     break;
 
                 case 2:
                     Console.WriteLine("hai scelto di creare prelevare");
-                    _ = CreateAccount() - createCashMovement();
+                    CashMovement cm1 = createCashMovement();
+                    _ = StAccount - cm1;
+                    cm1.ToString();
+
                     break;
 
                 case 3:
                     Console.WriteLine("hai scelto di Fare un trasferimento");
+                    TransferMovement tm = TransferMovementCreate();
+                    _ = StAccount - tm;
+                    tm.ToString();
+
                     break;
 
                 case 4:
                     Console.WriteLine("hai scelto di oerare con la tua carta di credito");
-                    Console.WriteLine("cosa vuoi fare? versare/pagere");
+                    Console.WriteLine("cosa vuoi fare? caricare/pagere");
+                    string operazione = Console.ReadLine();
+
+                    CreditCardMovement ccm = CreditCardMovementCreate();                
+
+                    if (operazione.Equals("caricare"))
+                    {
+                        _ = StAccount + ccm;
+                        ccm.ToString();
+                    }
+                    else if (operazione.Equals("pagare"))
+                    {
+                        _ = StAccount - ccm;
+                        ccm.ToString();
+                    }
+                    else
+                    {
+                        Console.WriteLine("formato operazioen non corretto");
+
+                    }
+                   
                     break;
-
-
 
             }
 
+
             Console.Read();
         }
+
         public static Account CreateAccount() {
             Console.WriteLine("Ho bisogno dei tui dati");
 
@@ -110,18 +154,17 @@ namespace Week2.Esercitazione.ConsoleApp
 
         public static CreditCardMovement CreditCardMovementCreate()
         {
-            
-            Enum.TryParse(Console.ReadLine(), out int tipo);
-            int Tipo = tipo;
-            CreditCardMovement cm = new CreditCardMovement
+          
+
+            CreditCardMovement ccm = new CreditCardMovement
                 (
-                Convert.ToInt32(Console.ReadLine()),
+                 Convert.ToInt32(Console.ReadLine()),
                  DateTime.Now,
-                 (Tipo)Tipo,
+                 (Tipo)int.Parse(Console.ReadLine()),
                  Console.ReadLine()
 
                );
-            return cm;
+            return ccm;
 
         }
 
