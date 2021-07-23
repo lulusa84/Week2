@@ -15,7 +15,7 @@ namespace Week2.Esercitazione
         public double CurrentAmount { get; set; }
         public DateTime LastMovementDate { get; set; }
 
-        public List<IMovement> MList { get; set; } = new List<IMovement>() { };
+        private List<IMovement> MList { get; set; } = new List<IMovement>() { };
 
         public Account(int accountN, string nomeBanca, double currentAmount,
             DateTime lastMovementDate)
