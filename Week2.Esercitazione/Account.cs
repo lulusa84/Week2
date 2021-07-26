@@ -60,5 +60,13 @@ namespace Week2.Esercitazione
 
         }
 
+        public void getMList()
+        {
+            foreach(IMovement m in MList)
+            {
+                Console.WriteLine(m.ToString());
+            }
+        }
+
     }
 }

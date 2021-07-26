@@ -95,7 +95,10 @@ namespace Week2
             msi.Add(1);
             msp.Add(p);
 
+            //
+            //
             Console.Read();
+            
         }
     }
 
